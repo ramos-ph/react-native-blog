@@ -3,11 +3,11 @@ import React from 'react'
 import avatar from '../../../../assets/img/profile.jpg'
 import {Container, Avatar, AuthorName} from './styles'
 
-function AuthorBrief() {
+function AuthorBrief({name}) {
 	return (
 		<Container>
 			<Avatar source={avatar} />
-			<AuthorName>Pedro Ramos</AuthorName>
+			<AuthorName>{name}</AuthorName>
 		</Container>
 	)
 }

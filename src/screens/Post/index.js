@@ -24,7 +24,7 @@ function renderPostContent(markdown) {
 }
 
 function Post() {
-	const [post, setPost] = useState({})
+	const [post, setPost] = useState(null)
 
 	const route = useRoute()
 	const postId = route.params.postId
@@ -40,10 +40,10 @@ function Post() {
 
 	return (
 		<Container>
-			<AuthorBrief name={post.author} />
-			<PostTitle>{post.title?.replace('#', '').trim()}</PostTitle>
+			<AuthorBrief name={post?.author} />
+			<PostTitle>{post?.title?.replace('#', '').trim()}</PostTitle>
 			<PostDate>
-				{post.created_at && format(parseISO(post.created_at), 'LLLL d, yyyy')}
+				{post && format(parseISO(post.created_at), 'LLLL d, yyyy')}
 			</PostDate>
 
 			{renderPostContent(post?.content)}

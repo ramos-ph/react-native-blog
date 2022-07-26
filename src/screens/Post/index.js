@@ -5,6 +5,8 @@ import {Container, PostTitle, PostDate, Paragraph, ListItem} from './styles'
 import BackToHomeButton from './components/BackToHomeButton'
 import AuthorBrief from './components/AuthorBrief'
 
+import {useMarkdownRenderer} from '../../hooks/useMarkdownRenderer'
+
 import api from '../../services/api'
 import {format, parseISO} from 'date-fns'
 
@@ -25,6 +27,7 @@ function renderPostContent(markdown) {
 
 function Post() {
 	const [post, setPost] = useState(null)
+	const renderMarkdown = useMarkdownRenderer()
 
 	const route = useRoute()
 	const postId = route.params.postId
@@ -46,7 +49,7 @@ function Post() {
 				{post && format(parseISO(post.created_at), 'LLLL d, yyyy')}
 			</PostDate>
 
-			{renderPostContent(post?.content)}
+			{post && renderMarkdown(post?.content)}
 			<BackToHomeButton />
 		</Container>
 	)

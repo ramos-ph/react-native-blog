@@ -16,13 +16,14 @@ export const PostTitle = styled.Text`
 export const PostDate = styled.Text`
 	margin-top: 10px;
 	font-size: 16px;
+	margin-bottom: 10px;
 	color: #666;
 `
 
 export const Paragraph = styled.Text`
 	font-size: 18px;
 	color: #333;
-	margin: 25px 0;
+	margin: 15px 0;
 `
 
 export const ListItem = styled.Text`

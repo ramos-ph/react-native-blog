@@ -2,6 +2,7 @@ import React from 'react'
 import {useNavigation} from '@react-navigation/native'
 
 import {Container, Title, PostDate} from './styles'
+import {format, parseISO} from 'date-fns'
 
 const TITLE_LENGTH_LIMIT = 40
 
@@ -18,7 +19,7 @@ function PostCard({title, date, postId}) {
 	return (
 		<Container onPress={() => navigation.navigate('Post', {postId})}>
 			<Title>{abbreviateTitle(title)}</Title>
-			<PostDate>{date}</PostDate>
+			<PostDate>{format(parseISO(date), 'LLLL d, yyyy')}</PostDate>
 		</Container>
 	)
 }

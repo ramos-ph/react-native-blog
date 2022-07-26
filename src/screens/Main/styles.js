@@ -12,3 +12,5 @@ export const Title = styled.Text`
 	color: #000;
 	margin-bottom: 12px;
 `
+
+export const PostsList = styled.FlatList``

@@ -6,20 +6,6 @@ export const Container = styled.View`
 	padding: 10px 20px;
 `
 
-export const PostTitle = styled.Text`
-	color: #000;
-	font-size: 36px;
-	font-weight: bold;
-	line-height: 36px;
-`
-
-export const PostDate = styled.Text`
-	margin-top: 10px;
-	font-size: 16px;
-	margin-bottom: 10px;
-	color: #666;
-`
-
 export const Paragraph = styled.Text`
 	font-size: 18px;
 	color: #333;

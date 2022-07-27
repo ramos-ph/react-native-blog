@@ -1,14 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import {useRoute} from '@react-navigation/native'
 
-import {Container, PostTitle, PostDate, Paragraph, ListItem} from './styles'
-import BackToHomeButton from './components/BackToHomeButton'
-import AuthorBrief from './components/AuthorBrief'
+import {Container, Paragraph, ListItem} from './styles'
 
 import {useMarkdownRenderer} from '../../hooks/useMarkdownRenderer'
 
 import api from '../../services/api'
-import {format, parseISO} from 'date-fns'
+import Header from './components/Header'
+import BackToHomeButton from './components/BackToHomeButton'
 
 function renderPostContent(markdown) {
 	if (!markdown) return
@@ -43,11 +42,7 @@ function Post() {
 
 	return (
 		<Container>
-			<AuthorBrief name={post?.author} />
-			<PostTitle>{post?.title?.replace('#', '').trim()}</PostTitle>
-			<PostDate>
-				{post && format(parseISO(post.created_at), 'LLLL d, yyyy')}
-			</PostDate>
+			{post && <Header post={post} />}
 
 			{post && renderMarkdown(post?.content)}
 			<BackToHomeButton />

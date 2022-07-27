@@ -9,21 +9,6 @@ import api from '../../services/api'
 import Header from './components/Header'
 import BackToHomeButton from './components/BackToHomeButton'
 
-function renderPostContent(markdown) {
-	if (!markdown) return
-
-	return markdown
-		.split('\n')
-		.filter(line => line)
-		.map((line, index) => {
-			if (line.startsWith('-')) {
-				return <ListItem key={index}>{line}</ListItem>
-			} else {
-				return <Paragraph key={index}>{line}</Paragraph>
-			}
-		})
-}
-
 function Post() {
 	const [post, setPost] = useState(null)
 	const renderMarkdown = useMarkdownRenderer()
